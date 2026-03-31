@@ -8,16 +8,18 @@
  *
  * @author MOSCI.CHRISTIAN
  */
-public class Arnie {
+public class Arnia {
     private int id;
     private String nome;
     private String posizione;
     private int numeroApi;
     private String stato;
 
-    public Arnie() {}
+    public Arnia() {
+    
+    }
 
-    public Arnie(int id, String nome, String posizione, int numeroApi, String stato) {
+    public Arnia(int id, String nome, String posizione, int numeroApi, String stato) {
         this.id = id;
         this.nome = nome;
         this.posizione = posizione;
