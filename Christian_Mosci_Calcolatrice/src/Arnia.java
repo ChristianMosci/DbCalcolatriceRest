@@ -28,18 +28,37 @@ public class Arnia {
     }
 
     // Getter e Setter
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() { 
+        return id;
+    }
+    public void setId(int id) { 
+        this.id = id; 
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public String getNome() {
+        return nome; 
+    }
+    public void setNome(String nome) { 
+        this.nome = nome; 
+    }
 
-    public String getPosizione() { return posizione; }
-    public void setPosizione(String posizione) { this.posizione = posizione; }
+    public String getPosizione() {
+        return posizione; 
+    }
+    public void setPosizione(String posizione) { 
+        this.posizione = posizione; 
+    }
 
-    public int getNumeroApi() { return numeroApi; }
-    public void setNumeroApi(int numeroApi) { this.numeroApi = numeroApi; }
-
-    public String getStato() { return stato; }
-    public void setStato(String stato) { this.stato = stato; }
+    public int getNumeroApi() {
+        return numeroApi; 
+    }
+    public void setNumeroApi(int numeroApi) {
+        this.numeroApi = numeroApi;
+    }
+    public String getStato() { 
+        return stato; 
+    }
+    public void setStato(String stato) { 
+        this.stato = stato;
+    }
 }

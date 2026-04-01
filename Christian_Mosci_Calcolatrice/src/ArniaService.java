@@ -15,7 +15,7 @@ public class ArniaService {
 
     public static List<Arnia> getAllArnie() throws Exception {
         List<Arnia> lista = new ArrayList<>();
-
+        
         Connection conn = ConnessioneDb.getConnection();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM arnie");
