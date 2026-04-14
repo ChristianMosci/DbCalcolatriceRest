@@ -1,4 +1,14 @@
 /*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author mosci.christian
+ */
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -16,10 +26,11 @@ import java.io.OutputStream;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
-public class GetHandler implements HttpHandler {
+public class ArniaGetHandle implements HttpHandler {
     
     private final Gson gson = new GsonBuilder()
             .setPrettyPrinting()
@@ -61,11 +72,15 @@ public class GetHandler implements HttpHandler {
         os.write(bytes);
         os.close();
     }
-    
+   
     private void inviaErrore(HttpExchange exchange, int codice, String messaggio) 
-            throws IOException {
-        
-        String jsonErrore = gson.toJson(new Errore(messaggio, codice));
-        inviaRisposta(exchange, codice, jsonErrore);
-    }
+        throws IOException {
+
+    Map<String, Object> errore = new HashMap<>();
+    errore.put("errore", messaggio);
+    errore.put("status", codice);
+
+    String jsonErrore = gson.toJson(errore);
+    inviaRisposta(exchange, codice, jsonErrore);
+}
 }

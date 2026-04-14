@@ -9,56 +9,62 @@
  * @author MOSCI.CHRISTIAN
  */
 public class Arnia {
-    private int id;
-    private String nome;
-    private String posizione;
-    private int numeroApi;
-    private String stato;
+    private int arn_id;
+    private String arn_dataInst;
+    private boolean arn_piena;
+    private String arn_MacAddress;
+    private int api_id;
 
-    public Arnia() {
-    
-    }
+    public Arnia() {}
 
-    public Arnia(int id, String nome, String posizione, int numeroApi, String stato) {
-        this.id = id;
-        this.nome = nome;
-        this.posizione = posizione;
-        this.numeroApi = numeroApi;
-        this.stato = stato;
+    public Arnia(int arn_id, String arn_dataInst, boolean arn_piena, String arn_MacAddress, int api_id) {
+        this.arn_id = arn_id;
+        this.arn_dataInst = arn_dataInst;
+        this.arn_piena = arn_piena;
+        this.arn_MacAddress = arn_MacAddress;
+        this.api_id = api_id;
     }
 
-    // Getter e Setter
-    public int getId() { 
-        return id;
-    }
-    public void setId(int id) { 
-        this.id = id; 
+    public int getArn_id() {
+        return arn_id;
     }
 
-    public String getNome() {
-        return nome; 
-    }
-    public void setNome(String nome) { 
-        this.nome = nome; 
+    public void setArn_id(int arn_id) {
+        this.arn_id = arn_id;
     }
 
-    public String getPosizione() {
-        return posizione; 
-    }
-    public void setPosizione(String posizione) { 
-        this.posizione = posizione; 
+    public String getArn_dataInst() {
+        return arn_dataInst;
     }
 
-    public int getNumeroApi() {
-        return numeroApi; 
+    public void setArn_dataInst(String arn_dataInst) {
+        this.arn_dataInst = arn_dataInst;
     }
-    public void setNumeroApi(int numeroApi) {
-        this.numeroApi = numeroApi;
+
+    public boolean isArn_piena() {
+        return arn_piena;
     }
-    public String getStato() { 
-        return stato; 
+
+    public void setArn_piena(boolean arn_piena) {
+        this.arn_piena = arn_piena;
     }
-    public void setStato(String stato) { 
-        this.stato = stato;
+
+    public String getArn_MacAddress() {
+        return arn_MacAddress;
     }
+
+    public void setArn_MacAddress(String arn_MacAddress) {
+        this.arn_MacAddress = arn_MacAddress;
+    }
+
+    public int getApi_id() {
+        return api_id;
+    }
+
+    public void setApi_id(int api_id) {
+        this.api_id = api_id;
+    }
+
+
+   
 }

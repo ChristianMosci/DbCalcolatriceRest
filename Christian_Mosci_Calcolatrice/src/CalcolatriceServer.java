@@ -16,6 +16,7 @@ import java.net.InetSocketAddress;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class CalcolatriceServer {
     
     private final int porta;
@@ -35,8 +36,8 @@ public class CalcolatriceServer {
             // PostHandler.java e GetHandler.java nella stessa cartella (package)
             
             // arnie
-            server.createContext("/api/arnie", new GetArnieHandler());
-            server.createContext("/api/arnie/add", new PostArniaHandler());
+            server.createContext("/api/arnie", new ArniaGetHandle());
+            server.createContext("/api/arnie/add", new ArniaPostHandle());
             
             // Endpoint di benvenuto
             server.createContext("/", exchange -> {
