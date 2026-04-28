@@ -15,8 +15,6 @@ public class Arnia {
     private String arn_MacAddress;
     private int api_id;
 
-    public Arnia() {}
-
     public Arnia(int arn_id, String arn_dataInst, boolean arn_piena, String arn_MacAddress, int api_id) {
         this.arn_id = arn_id;
         this.arn_dataInst = arn_dataInst;
@@ -65,6 +63,7 @@ public class Arnia {
         this.api_id = api_id;
     }
 
+    
 
    
 }

@@ -35,18 +35,18 @@ while (rs.next()) {
         return lista;
     }
 
-    public static void inserisciArnia(Arnia arnia) throws Exception {
-        Connection conn = ConnessioneDb.getConnection();
+   public static void inserisciArnia(Arnia arnia) throws Exception {
+    Connection conn = ConnessioneDb.getConnection();
 
-       String sql = "INSERT INTO arnia (arn_dataInst, arn_piena, arn_MacAddress, api_id) VALUES (?, ?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
+    String sql = "INSERT INTO arnia (arn_dataInst, arn_piena, arn_MacAddress, api_id) VALUES (?, ?, ?, ?)";
+    PreparedStatement ps = conn.prepareStatement(sql);
 
-       ps.setString(1, arnia.getArn_dataInst());
-ps.setBoolean(2, arnia.isArn_piena());
-ps.setString(3, arnia.getArn_MacAddress());
-ps.setInt(4, arnia.getApi_id());
+    ps.setString(1, arnia.getArn_dataInst());
+    ps.setBoolean(2, arnia.isArn_piena());
+    ps.setString(3, arnia.getArn_MacAddress());
+    ps.setInt(4, arnia.getApi_id());
 
-        ps.executeUpdate();
-        conn.close();
-    }
+    ps.executeUpdate();
+    conn.close();
+}
 }
