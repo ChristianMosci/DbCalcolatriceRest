@@ -37,27 +37,43 @@ public class ArniaGetHandle implements HttpHandler {
             .create();
     
     @Override
-    public void handle(HttpExchange exchange) throws IOException {
-        
-        // Controllo metodo
-        if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
-            inviaErrore(exchange, 405, "Metodo non consentito. Usa GET");
-            return;
-        }
-        
-        try {
-            // 🔥 PRENDO LE ARNIE DAL DATABASE
-            List<Arnia> lista = ArniaService.getAllArnie();
-            
-            // 🔥 CONVERSIONE JSON CON GSON
-            String jsonRisposta = gson.toJson(lista);
-            
-            inviaRisposta(exchange, 200, jsonRisposta);
-            
-        } catch (Exception e) {
-            inviaErrore(exchange, 500, "Errore server: " + e.getMessage());
-        }
+public void handle(HttpExchange exchange) throws IOException {
+
+    if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
+        inviaErrore(exchange, 405, "Metodo non consentito. Usa GET");
+        return;
     }
+
+    try {
+        String query = exchange.getRequestURI().getQuery();
+
+        // 👉 CASO 1: GET con ID
+        if (query != null && query.contains("id=")) {
+
+            int id = Integer.parseInt(query.split("=")[1]);
+
+            Arnia arnia = ArniaService.getArniaById(id);
+
+            if (arnia == null) {
+                inviaErrore(exchange, 404, "Arnia non trovata");
+                return;
+            }
+
+            String json = gson.toJson(arnia);
+            inviaRisposta(exchange, 200, json);
+
+        } 
+        // 👉 CASO 2: GET TUTTE
+        else {
+            List<Arnia> lista = ArniaService.getAllArnie();
+            String json = gson.toJson(lista);
+            inviaRisposta(exchange, 200, json);
+        }
+
+    } catch (Exception e) {
+        inviaErrore(exchange, 500, "Errore server: " + e.getMessage());
+    }
+}
     
     private void inviaRisposta(HttpExchange exchange, int codice, String jsonRisposta) 
             throws IOException {

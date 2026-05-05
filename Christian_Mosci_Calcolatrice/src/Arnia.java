@@ -9,6 +9,7 @@
  * @author MOSCI.CHRISTIAN
  */
 public class Arnia {
+
     private int arn_id;
     private String arn_dataInst;
     private boolean arn_piena;
@@ -23,47 +24,18 @@ public class Arnia {
         this.api_id = api_id;
     }
 
-    public int getArn_id() {
-        return arn_id;
-    }
+    public int getArn_id() { return arn_id; }
+    public void setArn_id(int arn_id) { this.arn_id = arn_id; }
 
-    public void setArn_id(int arn_id) {
-        this.arn_id = arn_id;
-    }
+    public String getArn_dataInst() { return arn_dataInst; }
+    public void setArn_dataInst(String arn_dataInst) { this.arn_dataInst = arn_dataInst; }
 
-    public String getArn_dataInst() {
-        return arn_dataInst;
-    }
+    public boolean isArn_piena() { return arn_piena; }
+    public void setArn_piena(boolean arn_piena) { this.arn_piena = arn_piena; }
 
-    public void setArn_dataInst(String arn_dataInst) {
-        this.arn_dataInst = arn_dataInst;
-    }
+    public String getArn_MacAddress() { return arn_MacAddress; }
+    public void setArn_MacAddress(String arn_MacAddress) { this.arn_MacAddress = arn_MacAddress; }
 
-    public boolean isArn_piena() {
-        return arn_piena;
-    }
-
-    public void setArn_piena(boolean arn_piena) {
-        this.arn_piena = arn_piena;
-    }
-
-    public String getArn_MacAddress() {
-        return arn_MacAddress;
-    }
-
-    public void setArn_MacAddress(String arn_MacAddress) {
-        this.arn_MacAddress = arn_MacAddress;
-    }
-
-    public int getApi_id() {
-        return api_id;
-    }
-
-    public void setApi_id(int api_id) {
-        this.api_id = api_id;
-    }
-
-    
-
-   
+    public int getApi_id() { return api_id; }
+    public void setApi_id(int api_id) { this.api_id = api_id; }
 }

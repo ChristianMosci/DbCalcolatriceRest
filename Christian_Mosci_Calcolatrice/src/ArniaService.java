@@ -38,15 +38,49 @@ while (rs.next()) {
    public static void inserisciArnia(Arnia arnia) throws Exception {
     Connection conn = ConnessioneDb.getConnection();
 
-    String sql = "INSERT INTO arnia (arn_dataInst, arn_piena, arn_MacAddress, api_id) VALUES (?, ?, ?, ?)";
-    PreparedStatement ps = conn.prepareStatement(sql);
+   String sql = "INSERT INTO arnia (arn_dataInst, arn_piena, arn_MacAddress, api_id) VALUES (?, ?, ?, ?)";
 
-    ps.setString(1, arnia.getArn_dataInst());
-    ps.setBoolean(2, arnia.isArn_piena());
-    ps.setString(3, arnia.getArn_MacAddress());
-    ps.setInt(4, arnia.getApi_id());
+PreparedStatement ps = conn.prepareStatement(sql);
 
-    ps.executeUpdate();
+ps.setString(1, arnia.getArn_dataInst());
+ps.setBoolean(2, arnia.isArn_piena());
+ps.setString(3, arnia.getArn_MacAddress());
+ps.setInt(4, arnia.getApi_id());
+
+ps.executeUpdate();
     conn.close();
 }
+   
+   public static Arnia getArniaById(int id) throws Exception {
+
+    Connection conn = ConnessioneDb.getConnection();
+
+    String sql = "SELECT * FROM arnia WHERE arn_id = ?";
+    PreparedStatement ps = conn.prepareStatement(sql);
+    ps.setInt(1, id);
+
+    ResultSet rs = ps.executeQuery();
+
+    if (rs.next()) {
+        Arnia a = new Arnia(
+            rs.getInt("arn_id"),
+            rs.getString("arn_dataInst"),
+            rs.getBoolean("arn_piena"),
+            rs.getString("arn_MacAddress"),
+            rs.getInt("api_id")
+        );
+        conn.close();
+        return a;
+    }
+
+    conn.close();
+    return null;
+}
+   
+   
+   
+   
+   
+   
+   
 }
